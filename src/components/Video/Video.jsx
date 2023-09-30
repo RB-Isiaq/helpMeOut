@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Copy, Edit, Fb, Tg, Wa } from "../../assets";
 import Transcript from "../Transcript/Transcript";
 import { Link } from "react-router-dom";
 
 const Video = ({ src }) => {
-  console.log(src);
+  const [copy, setCopy] = useState("Copy");
+
   const base = `http://hngproject5.onrender.com/uploads/videos/${src}.webm`;
+  const whatsappShareUrl = `whatsapp://send?text=Check%20out%20this%20video%20${encodeURIComponent(
+    base
+  )}`;
+  const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+    base
+  )}`;
+  const telegramShareUrl = `https://t.me/share/url?url=${encodeURIComponent(
+    base
+  )}&text=Check%20out%20this%20video`;
+
+  const clickHandler = () => {
+    navigator.clipboard.writeText(base);
+    setCopy("Copied");
+  };
+
+  useEffect(() => {
+    const time = setTimeout(() => {
+      setCopy("Copy");
+    }, 1000);
+
+    return () => {
+      clearTimeout(time);
+    };
+  }, [setCopy, copy]);
+
   return (
     <div className="w-full flex flex-col gap-[64px] items-center justify-between py-10 lg:px-[100px] md:px-8 px-[10px]">
       <div className="w-full  flex flex-col lg:flex-row justify-between gap-6">
@@ -57,13 +83,12 @@ const Video = ({ src }) => {
                  border-0 outline-none"
                   value={base}
                 />
-                <button className="w-[104px] h-[44px] flex justify-center gap-2 items-center text-primary rounded-lg border border-primary">
-                  <img
-                    src={Copy}
-                    alt="copy"
-                    onClick={() => navigator.clipboard.writeText(base)}
-                  />
-                  Copy
+                <button
+                  className="w-[104px] h-[44px] flex justify-center gap-2 items-center text-primary rounded-lg border border-primary"
+                  onClick={clickHandler}
+                >
+                  <img src={Copy} alt="copy" />
+                  <p>{copy}</p>
                 </button>
               </div>
             </div>
@@ -72,24 +97,42 @@ const Video = ({ src }) => {
                 Share your video
               </p>
               <div className="flex gap-3">
-                <button className="w-[141px] h-[48px] border-[#0A0628] border rounded-md gap-2 flex justify-center items-center">
-                  <img src={Fb} alt="fb" />
-                  <p className="font-inter text-[08051E] font-medium">
-                    Facebook
-                  </p>
-                </button>
-                <button className="w-[141px] h-[48px] border-[#0A0628] border rounded-md gap-2 flex justify-center items-center">
-                  <img src={Wa} alt="Wa" />
-                  <p className="font-inter text-[08051E] font-medium">
-                    Whatsapp
-                  </p>
-                </button>
-                <button className="w-[141px] h-[48px] border-[#0A0628] border rounded-md gap-2 flex justify-center items-center">
-                  <img src={Tg} alt="tg" />
-                  <p className="font-inter text-[08051E] font-medium">
-                    Telegram
-                  </p>
-                </button>
+                <a
+                  href={facebookShareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="w-[141px] h-[48px] border-[#0A0628] border rounded-md gap-2 flex justify-center items-center">
+                    <img src={Fb} alt="Facebook" />
+                    <p className="font-inter text-[08051E] font-medium">
+                      Facebook
+                    </p>
+                  </button>
+                </a>
+                <a
+                  href={whatsappShareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="w-[141px] h-[48px] border-[#0A0628] border rounded-md gap-2 flex justify-center items-center">
+                    <img src={Wa} alt="WhatsApp" />
+                    <p className="font-inter text-[08051E] font-medium">
+                      WhatsApp
+                    </p>
+                  </button>
+                </a>
+                <a
+                  href={telegramShareUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="w-[141px] h-[48px] border-[#0A0628] border rounded-md gap-2 flex justify-center items-center">
+                    <img src={Tg} alt="tg" />
+                    <p className="font-inter text-[08051E] font-medium">
+                      Telegram
+                    </p>
+                  </button>
+                </a>
               </div>
             </div>
           </div>
