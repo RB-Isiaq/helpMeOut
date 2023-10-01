@@ -1,6 +1,5 @@
 import React from "react";
 import { Continue } from "../../assets";
-import { Link } from "react-router-dom";
 
 const HeroDescription = () => {
   return (
@@ -15,12 +14,12 @@ const HeroDescription = () => {
         Help your friends and loved ones by creating and sending videos on how
         to get things done on a website.
       </p>
-      <Link to="/popup">
+      <a href="https://help-me-out-ext.vercel.app/popup.html">
         <button className="w-[239px] h-[65px] flex justify-center items-center gap-3 bg-[#120B48] text-white text-[18px] rounded-lg mt-6 lg:mt-0">
           <span>Install HelpMeOut</span>
           <img src={Continue} alt="" />
         </button>
-      </Link>
+      </a>
     </div>
   );
 };
