@@ -1,15 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const NavLinks = () => {
   return (
-    <div className="flex px-5 py-10 justify-between items-center gap-[39px] text-black">
-      <Link to="/" className="font-medium">
+    <div className="hidden sm:flex px-5 py-10 justify-between items-center gap-[39px] text-black">
+      <HashLink
+        smooth
+        to={{ pathname: "/", hash: "#features" }}
+        className="font-medium"
+      >
         Features
-      </Link>
-      <Link to="/" className="font-medium">
+      </HashLink>
+      <HashLink
+        smooth
+        to={{ pathname: "/", hash: "#how" }}
+        className="font-medium"
+      >
         How It Works
-      </Link>
+      </HashLink>
     </div>
   );
 };

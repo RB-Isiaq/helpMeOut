@@ -6,7 +6,10 @@ import { Dashboard } from "../../assets";
 
 const Features = () => {
   return (
-    <div className="w-full flex flex-col gap-[64px] bg-white pt-[80px] lg:px-[100px] md:px-8 px-[10px]">
+    <div
+      className="w-full flex flex-col gap-[64px] bg-white pt-[80px] lg:px-[100px] md:px-8 px-[10px]"
+      id="features"
+    >
       <FeatureHeader />
       <div className="w-full flex flex-wrap gap-20 md:gap-8 justify-center">
         <div className="flex flex-col gap-[48px]">

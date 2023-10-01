@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const HeroDescription = () => {
   return (
     <div className="w-full max-w-[548px] h-[317px] flex flex-col justify-between items-start">
-      <h1 className="font-sora text-[64px] leading-[100%] font-bold w-[469px] h-[128px]">
+      <h1 className="font-sora text-[44px] sm:text-[64px] leading-[100%] font-bold max-w-[469px] h-[128px]">
         Show Them Don't Just Tell
       </h1>
       <p
@@ -16,7 +16,7 @@ const HeroDescription = () => {
         to get things done on a website.
       </p>
       <Link to="/popup">
-        <button className="w-[239px] h-[65px] flex justify-center items-center gap-3 bg-[#120B48] text-white text-[18px] rounded-lg">
+        <button className="w-[239px] h-[65px] flex justify-center items-center gap-3 bg-[#120B48] text-white text-[18px] rounded-lg mt-6 lg:mt-0">
           <span>Install HelpMeOut</span>
           <img src={Continue} alt="" />
         </button>

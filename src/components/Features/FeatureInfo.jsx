@@ -3,7 +3,7 @@ import React from "react";
 const FeatureInfo = ({ icon, title, info }) => {
   return (
     <div className="w-full max-w-[548px] h-[102px] flex gap-4 mx-2 my-4">
-      <div className="flex justify-center items-center bg-[#120B48] w-[67px] h-[40px]  rounded-[50px]">
+      <div className="flex justify-center items-center bg-[#120B48] w-[67px] h-[40px]  rounded-[30px]">
         <img className="w-[30px] h-[30px] object-fit" src={icon} alt="icon" />
       </div>
       <div className=" flex flex-col justify-between">

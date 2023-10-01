@@ -27,6 +27,8 @@ import Copy from "./icons/copy.svg";
 import Fb from "./icons/facebook.svg";
 import Wa from "./icons/whatsapp.svg";
 import Tg from "./icons/telegram.svg";
+import Google from "./icons/google.svg";
+import Sent from "./icons/send.png";
 
 export {
   Logo,
@@ -58,4 +60,6 @@ export {
   Fb,
   Wa,
   Tg,
+  Google,
+  Sent
 };
