@@ -11,16 +11,12 @@ const HeroImages = () => {
       <div className="max-h-[448px] z-[1]">
         <img src={Lady} alt="Lady" />
       </div>
-      <img
-        src={Dots}
-        alt="icons"
-        className="absolute top-[-58px] right-[-48px]"
-      />
-      <img
-        src={Dots2}
-        alt="icons"
-        className="absolute bottom-[-86px] left-[-50px] "
-      />
+      <div className="absolute top-[-58px] right-[-48px]  hidden sm:block">
+        <img src={Dots} alt="icons" className="object-contain" />
+      </div>
+      <div className="absolute bottom-[-86px] left-[-50px]  hidden sm:block">
+        <img src={Dots2} alt="icons" className="object-contain" />
+      </div>
     </div>
   );
 };
